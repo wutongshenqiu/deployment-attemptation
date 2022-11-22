@@ -3,7 +3,9 @@ import copy
 from torch.utils.data import Dataset
 from torchvision import transforms
 
-DATASETS_MAPPING: dict[str, Dataset] = {}
+from .animal5 import Animal5
+
+DATASETS_MAPPING: dict[str, Dataset] = {'Animal5': Animal5}
 
 
 def build_dataset(dataset_cfg: dict) -> Dataset:
