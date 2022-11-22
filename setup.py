@@ -105,4 +105,5 @@ if __name__ == '__main__':
           ],
           author='qiufeng',
           license='GNU General Public License v3.0',
-          install_requires=parse_requirements('requirements.txt'))
+          install_requires=parse_requirements('requirements.txt'),
+          python_requires='>=3.10')
