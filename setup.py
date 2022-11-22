@@ -90,10 +90,9 @@ def parse_requirements(fname='requirements.txt', with_version=True):
 if __name__ == '__main__':
     setup(name='animal_classification',
           version=get_version(),
-          description='Animal Classification Toolbox',
+          description='A boring project just for homework',
           long_description=readme(),
           long_description_content_type='text/markdown',
-          keywords='computer vision, classification',
           packages=find_packages(exclude=('configs', 'tools', 'demo')),
           include_package_data=True,
           classifiers=[
@@ -105,5 +104,5 @@ if __name__ == '__main__':
               'Topic :: Scientific/Engineering :: Artificial Intelligence',
           ],
           author='qiufeng',
-          license='GNU GPLv3',
+          license='GNU General Public License v3.0',
           install_requires=parse_requirements('requirements.txt'))
