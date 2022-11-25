@@ -1,3 +1,4 @@
+import torch
 import torch.nn.functional as F
 from torch.utils.data import DataLoader
 
@@ -53,6 +54,10 @@ class EpochNormalTrainer(EpochBasedTrainer):
         }
         self._tb_writer.add_scalars('Learning rate', {**network_lr},
                                     self._current_epoch)
+
+    def after_train(self) -> None:
+        torch.save(self._nos.network.state_dict(),
+                   self._ckpt_dirs / 'network.pth')
 
     def validation(self) -> None:
         # acc of clean test data on teacher & student

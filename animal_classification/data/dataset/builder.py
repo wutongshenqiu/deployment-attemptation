@@ -4,8 +4,12 @@ from torch.utils.data import Dataset
 from torchvision import transforms
 
 from .animal5 import Animal5
+from .animal90 import Animal90
 
-DATASETS_MAPPING: dict[str, Dataset] = {'Animal5': Animal5}
+DATASETS_MAPPING: dict[str, Dataset] = {
+    'Animal5': Animal5,
+    'Animal90': Animal90
+}
 
 
 def build_dataset(dataset_cfg: dict) -> Dataset:

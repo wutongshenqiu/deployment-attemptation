@@ -78,6 +78,7 @@ class EpochBasedTrainer(Module, abc.ABC):
             pbar.update(1)
 
         self.test()
+        self.after_train()
 
     @abc.abstractmethod
     def before_train_epoch(self) -> None:
@@ -89,6 +90,10 @@ class EpochBasedTrainer(Module, abc.ABC):
 
     @abc.abstractmethod
     def after_train_epoch(self) -> None:
+        ...
+
+    @abc.abstractmethod
+    def after_train(self) -> None:
         ...
 
     @abc.abstractmethod
