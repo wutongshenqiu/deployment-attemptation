@@ -110,6 +110,20 @@ class SimpleNOS(Module):
 
         return state_dict
 
+    def _load_from_state_dict(self, state_dict, prefix, local_metadata, strict,
+                              missing_keys, unexpected_keys, error_msgs):
+        optimizer_key = f'{prefix}optimizer'
+        scheduler_key = f'{prefix}scheduler'
+        if optimizer_key in state_dict:
+            self.optimizer.load_state_dict(state_dict.pop(optimizer_key))
+        if scheduler_key in state_dict:
+            self.scheduler.load_state_dict(state_dict.pop(scheduler_key))
+
+        return super()._load_from_state_dict(state_dict, prefix,
+                                             local_metadata, strict,
+                                             missing_keys, unexpected_keys,
+                                             error_msgs)
+
 
 class SimpleFreezeNOS(SimpleNOS):
 

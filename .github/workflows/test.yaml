@@ -5,11 +5,15 @@ on:
     paths-ignore:
       - "README.md"
       - "config/**"
+      - "demo/**"
+      - "tools/**"
 
   pull_request:
     paths-ignore:
       - "README.md"
       - "config/**"
+      - "demo/**"
+      - "tools/**"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}

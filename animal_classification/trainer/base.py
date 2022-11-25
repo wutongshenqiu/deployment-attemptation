@@ -14,9 +14,9 @@ class EpochBasedTrainer(Module, abc.ABC):
     def __init__(self,
                  *,
                  epochs: int,
-                 save_interval: int,
+                 save_interval: int = 1,
                  epochs_per_validation: int = 1,
-                 work_dirs: str | Path,
+                 work_dirs: str | Path = 'work_dirs',
                  device: str = 'cuda' if torch.cuda.is_available() else 'cpu',
                  auto_resume: bool = True) -> None:
         super().__init__()

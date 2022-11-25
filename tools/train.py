@@ -50,6 +50,15 @@ if __name__ == '__main__':
     print(config.pretty_text)
 
     trainer = build_trainer(trainer_config)
+    print(trainer._nos.optimizer.state_dict().keys())
+    print('=' * 500)
+    ckpt_path = 'work_dirs/mbv2_animal5_bs32/ckpt/epoch=20.pth'
+    state_dict = torch.load(ckpt_path, map_location='cpu')
+    print(state_dict['state_dict']['_nos.optimizer'].keys())
+    trainer.load_checkpoint('work_dirs/mbv2_animal5_bs32/ckpt/epoch=20.pth')
+    torch.save(trainer._nos.network.state_dict(),
+               'work_dirs/mbv2_animal5_bs32/ckpt/network.pth')
+    exit()
     trainer.train()
 
     # empty pinned memory

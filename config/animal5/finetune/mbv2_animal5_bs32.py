@@ -1,4 +1,4 @@
-dataest_type = 'Animal5'
+dataset_type = 'Animal5'
 # below are not acctually mean/std of flowers102
 # https://stackoverflow.com/questions/58151507/why-pytorch-officially-use-mean-0-485-0-456-0-406-and-std-0-229-0-224-0-2
 dataset_mean = (0.485, 0.456, 0.406)
@@ -26,7 +26,7 @@ trainer = dict(
                  'classifier.1':
                  dict(type='Linear', in_features=1280, out_features=5)
              }),
-    train_dataloader=dict(dataset=dict(type=dataest_type,
+    train_dataloader=dict(dataset=dict(type=dataset_type,
                                        root='data/Animal Classification',
                                        split='train',
                                        transform=[
@@ -44,7 +44,7 @@ trainer = dict(
                           num_workers=num_workers,
                           pin_memory=pin_memory,
                           shuffle=True),
-    val_dataloader=dict(dataset=dict(type=dataest_type,
+    val_dataloader=dict(dataset=dict(type=dataset_type,
                                      root='data/Animal Classification',
                                      split='val',
                                      transform=[
@@ -58,7 +58,7 @@ trainer = dict(
                         batch_size=batch_size,
                         num_workers=num_workers,
                         pin_memory=pin_memory),
-    test_dataloader=dict(dataset=dict(type=dataest_type,
+    test_dataloader=dict(dataset=dict(type=dataset_type,
                                       root='data/Animal Classification',
                                       split='test',
                                       transform=[
